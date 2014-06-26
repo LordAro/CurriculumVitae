@@ -1,0 +1,147 @@
+\newif\ifuni
+%\unitrue % uni flag
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{graphicx} % For \cs
+\usepackage[colorlinks, urlcolor=blue]{hyperref} % For URLs/Emails
+\usepackage{multirow} % Fancy tables
+\usepackage{fancyhdr} % Header/Footers
+\usepackage{datetime} % Custom date format
+\ifuni
+  \usepackage{textpos}  % Image positioning
+\fi
+
+% Custom commands
+\newcommand{\cpp}{C{}\texttt{++}}
+\newcommand{\cs}{\settoheight{\dimen0}{C}C\kern-.05em \resizebox{!}{\dimen0}{\raisebox{\depth}{\textbf{\#}}}}
+\renewcommand{\arraystretch}{1.5}
+\ifuni
+\newcommand{\email}{cp872@york.ac.uk}
+\newcommand{\address}{7 Windmill Lane, Hull Road, York, YO10 3LG}
+\else
+\newcommand{\email}{charles@pigott.org.uk}
+\newcommand{\address}{Kersey's Farm, Mendlesham, Stowmarket, Suffolk, IP14 5RB} % ??
+\fi
+
+\title{Charles Pigott}
+\author{}
+% Date hijacking!
+\date{
+  \href{mailto:\email}{\email}\\
+  07821 169 013 (Mobile)\\
+  \address
+}
+
+\newdateformat{mydate}{\monthname[\THEMONTH] \THEYEAR}
+
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{\mydate\today}
+\lfoot{Curriculum Vitae}
+\cfoot{}
+\rfoot{\href{mailto:\email}{\email}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\setlength{\headheight}{14pt}
+
+\begin{document}
+\maketitle
+\ifuni
+  % nasty hacks
+  \begin{textblock*}{40mm}(135mm, -65mm)
+  \includegraphics[scale=0.045]{FaceOct13}
+  \end{textblock*}
+\fi
+\thispagestyle{fancy}
+
+\section*{Profile}
+I am a student at the University of York, where I have just finished my 1st
+year as an undergradate studying Mathematics and Computer Science
+
+
+\section*{Education}
+\begin{tabular}{r | l | l | l}
+  Dates                       & Institution
+  & Qualification(s)                                            & Grade(s) \\ \hline
+  \multirow{7}{*}{2013--}     & \multirow{7}{*}{University of York}
+  & MMath Mathematics and Computer Science                      &      \\
+                              &
+  & First Year Modules:                                         &      \\
+                              &
+  & ~~~~Core Algebra                                            & 56\% \\
+                              & 
+  & ~~~~Calculus                                                & 49\% \\
+                              & 
+  & ~~~~Mathematical Foundations of Computer Science            & 67\% \\
+                              & 
+  & ~~~~Introduction to Computer Architectures                  & 72\% \\
+                              &
+  & ~~~~Theory and Practice of Programming                      & 74\% \\ \hline
+  \multirow{7}{*}{2011--2013} & \multirow{7}{*}{Hartismere VI Form}
+  & A-levels:                                                   &   \\
+                              &
+  & ~~~~Physics                                                 & A \\
+                              & 
+  & ~~~~Mathematics                                             & A \\
+                              &
+  & ~~~~Further Mathematics                                     & B \\
+                              &
+  & ~~~~Computing                                               & B \\
+                              &
+  & AS-levels:                                                  &   \\
+                              &
+  & ~~~~Chemistry                                               & B \\   \hline
+  \multirow{4}{*}{2008--2011} & \multirow{4}{*}{Hartismere High School}
+  & \multirow{4}{*}{13 GCSEs, including Mathematics \& English} & 3 A* \\
+                              &
+  &                                                             & 2 A  \\
+                              & 
+  &                                                             & 3 B  \\
+                              &
+  &                                                             & 3 C  \\
+\end{tabular}
+
+\section*{Technical Skills}
+\begin{minipage}[t]{.45\textwidth}
+\subsection*{Programming languages}
+\begin{itemize}
+  \item C/\cpp
+  \item \cs.NET
+  \item HTML/CSS/JavaScript
+  \item Java
+  \item \LaTeX{} \& \textsc{Bib}\TeX
+  \item Python (2 \& 3)
+  \item SQL
+\end{itemize}
+\end{minipage}
+\hspace{0.5cm}
+% Mustn't be any spaces here
+\begin{minipage}[t]{.45\textwidth}
+\subsection*{Other}
+\begin{itemize}
+  \item Command line
+  \item Database management
+  \item Linux \& BSD experience
+  \item Microsoft Office
+  \item Server administration
+  \item VCSs - Subversion, Mercurial, Git
+\end{itemize}
+\end{minipage}
+
+\section*{Hobbies and Interests}
+Apart from my academic studies, I also participate in several open-source
+projects, notably OpenTTD and FreeRCT (in \cpp), which are open-source reimplementations
+of old games. Since joining university I have also joined the computing team for
+University Radio York which has a lot of software spanning many different types
+of systems (listed above). Outside of computing, I enjoy music (having achieved
+Advanced Music Grades on multiple instruments), cycling and reading.
+
+\section*{References}
+Henning Bostelmann, Academic Supervisor
+
+Details available on request.
+
+\end{document}
