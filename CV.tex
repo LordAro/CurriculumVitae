@@ -1,8 +1,11 @@
 \newif\ifuni
+\newif\ifsuf
 %\unitrue % uni flag
+%\suftrue % suffolk flag
 
 \documentclass[11pt,a4paper]{article}
 
+\usepackage{enumitem} % list indentation
 \usepackage[margin=2cm]{geometry}
 \usepackage{graphicx} % For \cs
 \usepackage[colorlinks, urlcolor=blue]{hyperref} % For URLs/Emails
@@ -14,22 +17,28 @@
 \fi
 
 % Custom commands
+\newcommand{\email}[1]{\href{mailto:#1}{#1}}
 \newcommand{\cpp}{C{}\texttt{++}}
 \newcommand{\cs}{\settoheight{\dimen0}{C}C\kern-.05em \resizebox{!}{\dimen0}{\raisebox{\depth}{\textbf{\#}}}}
 \renewcommand{\arraystretch}{1.5}
 \ifuni
-\newcommand{\email}{cp872@york.ac.uk}
-\newcommand{\address}{7 Windmill Lane, Hull Road, York, YO10 3LG}
+\newcommand{\selfemail}{cp872@york.ac.uk}
+\suffalse
 \else
-\newcommand{\email}{charles@pigott.org.uk}
-\newcommand{\address}{Kersey's Farm, Mendlesham, Stowmarket, Suffolk, IP14 5RB} % ??
+\newcommand{\selfemail}{charles@pigott.org.uk}
+\fi
+
+\ifsuf
+\newcommand{\address}{Kersey's Farm, Mendlesham, Stowmarket, Suffolk, IP14 5RB}
+\else
+\newcommand{\address}{7 Windmill Lane, Hull Road, York, YO10 3LG}
 \fi
 
 \title{Charles Pigott}
 \author{}
 % Date hijacking!
 \date{
-  \href{mailto:\email}{\email}\\
+  \email{\selfemail}\\
   07821 169 013 (Mobile)\\
   \address
 }
@@ -42,7 +51,7 @@
 \rhead{\mydate\today}
 \lfoot{Curriculum Vitae}
 \cfoot{}
-\rfoot{\href{mailto:\email}{\email}}
+\rfoot{\email{\selfemail}}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0.4pt}
 \setlength{\headheight}{14pt}
@@ -58,8 +67,8 @@
 \thispagestyle{fancy}
 
 \section*{Profile}
-I am a student at the University of York, where I have just finished my 1st
-year as an undergradate studying Mathematics and Computer Science
+I am a student at the University of York, where I am studying Mathematics and
+Computer Science and have just finished my 1st undergraduate year with a 2:1.
 
 
 \section*{Education}
@@ -132,16 +141,25 @@ year as an undergradate studying Mathematics and Computer Science
 \end{minipage}
 
 \section*{Hobbies and Interests}
-Apart from my academic studies, I also participate in several open-source
-projects, notably OpenTTD and FreeRCT (in \cpp), which are open-source reimplementations
-of old games. Since joining university I have also joined the computing team for
-University Radio York which has a lot of software spanning many different types
-of systems (listed above). Outside of computing, I enjoy music (having achieved
-Advanced Music Grades on multiple instruments), cycling and reading.
+Apart from my academic studies, I also do some development for several
+open-source projects, notably OpenTTD and FreeRCT (in \cpp), which are
+reimplementations of old games. Since joining university I have also joined the
+computing team for University Radio York which has a lot of software spanning
+many different types of systems (listed above) so that I may experience a
+``real-world'' computing system. I built my own computer, so that I may keep
+up with the hardware side of computing. Outside of computing, I enjoy music
+(having achieved Advanced Music Grades on multiple instruments), cycling and
+reading.
 
 \section*{References}
-Henning Bostelmann, Academic Supervisor
 
-Details available on request.
+\begin{itemize}[label={}]
+\item Dr Henning Bostelmann, Academic Supervisor \hfill \\
+  \indent \email{henning.bostelmann@york.ac.uk}
+\item Dr Lilian Blot, Lecturer \hfill \\
+  \indent \email{lilian.blot@york.ac.uk}
+\end{itemize}
+
+Further details available on request.
 
 \end{document}
