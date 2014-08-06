@@ -1,10 +1,11 @@
 \newif\ifuni
 \newif\ifsuf
 %\unitrue % uni flag
-%\suftrue % suffolk flag
+\suftrue % suffolk flag
 
 \documentclass[11pt,a4paper]{article}
 
+\usepackage[T1]{fontenc} % Make sure the font is rendered nicely
 \usepackage{enumitem} % list indentation
 \usepackage[margin=2cm]{geometry}
 \usepackage{graphicx} % For \cs
@@ -12,6 +13,7 @@
 \usepackage{multirow} % Fancy tables
 \usepackage{fancyhdr} % Header/Footers
 \usepackage{datetime} % Custom date format
+\usepackage{color} % Color
 \ifuni
   \usepackage{textpos}  % Image positioning
 \fi
@@ -22,19 +24,19 @@
 \newcommand{\cs}{\settoheight{\dimen0}{C}C\kern-.05em \resizebox{!}{\dimen0}{\raisebox{\depth}{\textbf{\#}}}}
 \renewcommand{\arraystretch}{1.5}
 \ifuni
-\newcommand{\selfemail}{cp872@york.ac.uk}
-\suffalse
+  \newcommand{\selfemail}{cp872@york.ac.uk}
+  \suffalse
 \else
-\newcommand{\selfemail}{charles@pigott.org.uk}
+  \newcommand{\selfemail}{charles@pigott.org.uk}
 \fi
 
 \ifsuf
-\newcommand{\address}{Kersey's Farm, Mendlesham, Stowmarket, Suffolk, IP14 5RB}
+  \newcommand{\address}{Kersey's Farm, Mendlesham, Stowmarket, Suffolk, IP14 5RB}
 \else
-\newcommand{\address}{7 Windmill Lane, Hull Road, York, YO10 3LG}
+  \newcommand{\address}{7 Windmill Lane, Hull Road, York, YO10 3LG}
 \fi
 
-\title{Charles Pigott}
+\title{\textbf{Charles Pigott}}
 \author{}
 % Date hijacking!
 \date{
@@ -57,6 +59,8 @@
 \setlength{\headheight}{14pt}
 
 \begin{document}
+\color{black} % Nasty thing that hopefully makes the text blacker
+
 \maketitle
 \ifuni
   % nasty hacks
@@ -67,9 +71,11 @@
 \thispagestyle{fancy}
 
 \section*{Profile}
-I am a student at the University of York, where I am studying Mathematics and
-Computer Science and have just finished my 1st undergraduate year with a 2:1.
-
+\begin{itemize} \itemsep1pt \parskip0pt \parsep0pt
+  \item Student at the University of York.
+  \item Studying Mathematics and Computer Science and have successfully completed first undergraduate year, gaining 2:1 equivalent grades.
+  \item Looking for employment within an IT company or IT-related role.
+\end{itemize}
 
 \section*{Education}
 \begin{tabular}{r | l | l | l}
@@ -129,7 +135,7 @@ Computer Science and have just finished my 1st undergraduate year with a 2:1.
 \hspace{0.5cm}
 % Mustn't be any spaces here
 \begin{minipage}[t]{.45\textwidth}
-\subsection*{Other}
+\subsection*{Miscellaneous computer skills}
 \begin{itemize}
   \item Command line
   \item Database management
@@ -141,15 +147,12 @@ Computer Science and have just finished my 1st undergraduate year with a 2:1.
 \end{minipage}
 
 \section*{Hobbies and Interests}
-Apart from my academic studies, I also do some development for several
-open-source projects, notably OpenTTD and FreeRCT (in \cpp), which are
-reimplementations of old games. Since joining university I have also joined the
-computing team for University Radio York which has a lot of software spanning
-many different types of systems (listed above) so that I may experience a
-``real-world'' computing system. I built my own computer, so that I may keep
-up with the hardware side of computing. Outside of computing, I enjoy music
-(having achieved Advanced Music Grades on multiple instruments), cycling and
-reading.
+\begin{itemize}  \itemsep1pt \parskip0pt \parsep0pt
+  \item Development work for several open-source projects, usually in \cpp ~(notably OpenTTD and FreeRCT, reimplementations of old games).
+  \item Gaining ``real world'' experience as a member of the University Radio York computing team which has software systems spanning those listed under Technical Skills above.
+  \item Built own computer to gain experience of hardware.
+  \item Leisure interests include cycling, reading and music (having achieved Advanced Music Grades on multiple instruments).
+\end{itemize}
 
 \section*{References}
 
