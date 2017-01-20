@@ -1,133 +1,99 @@
-\newif\ifuni
-\newif\ifsuf
-%\unitrue % uni flag
-\suftrue % suffolk flag
-
 \documentclass[11pt,a4paper]{article}
 
 \usepackage[T1]{fontenc} % Make sure the font is rendered nicely
 \usepackage{enumitem} % list indentation
 \usepackage[margin=2cm]{geometry}
 \usepackage{graphicx} % For \cs
-\usepackage[colorlinks, urlcolor=blue]{hyperref} % For URLs/Emails
-\usepackage{multirow} % Fancy tables
-\usepackage{fancyhdr} % Header/Footers
 \usepackage{datetime} % Custom date format
-\usepackage{color} % Color
-\ifuni
-  \usepackage{textpos}  % Image positioning
-\fi
+\usepackage{tabularx}
+\usepackage{titlesec} % titleformat
 
 % Custom commands
-\newcommand{\email}[1]{\href{mailto:#1}{#1}}
 \newcommand{\cpp}{C{}\texttt{++}}
 \newcommand{\cs}{\settoheight{\dimen0}{C}C\kern-.05em \resizebox{!}{\dimen0}{\raisebox{\depth}{\textbf{\#}}}}
 \renewcommand{\arraystretch}{1.5}
-\ifuni
-  \newcommand{\selfemail}{cp872@york.ac.uk}
-  \suffalse
-\else
-  \newcommand{\selfemail}{charles@pigott.org.uk}
-\fi
 
-\ifsuf
-  \newcommand{\address}{Kersey's Farm, Mendlesham, Stowmarket, Suffolk, IP14 5RB}
-\else
-  \newcommand{\address}{7 Windmill Lane, Hull Road, York, YO10 3LG}
-\fi
-
-\title{\textbf{Charles Pigott}}
-\author{}
-% Date hijacking!
-\date{
-  \email{\selfemail}\\
-  07821 169 013 (Mobile)\\
-  \address
-}
+\def\myemail{charles@pigott.org.uk}
+\def\myphone{07821 169013}
 
 \newdateformat{mydate}{\monthname[\THEMONTH] \THEYEAR}
 
-\pagestyle{fancy}
-\lhead{}
-\chead{}
-\rhead{\mydate\today}
-\lfoot{Curriculum Vitae}
-\cfoot{}
-\rfoot{\email{\selfemail}}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0.4pt}
-\setlength{\headheight}{14pt}
+% tabularx
+\newcolumntype{L}{>{\scshape\raggedleft}p{3.5cm}}
+\newcolumntype{R}{>{}X}
+
+\titleformat{\section}{\huge\scshape\raggedright}{}{0em}{}[\titlerule]
 
 \begin{document}
-\color{black} % Nasty thing that hopefully makes the text blacker
+\pagenumbering{gobble} % disable page numbers
 
-\maketitle
-\ifuni
-  % nasty hacks
-  \begin{textblock*}{40mm}(135mm, -65mm)
-  \includegraphics[scale=0.045]{FaceOct13}
-  \end{textblock*}
-\fi
-\thispagestyle{fancy}
+% date in top right
+\null\hfill\begin{tabular}[t]{l@{}}
+  \textbf{\mydate\today}
+\end{tabular}
+% "title"
+\textbf{\Huge{Charles Pigott}}\par\bigskip
+\raggedleft\texttt{\myemail}\\
+\myphone%
 
-\section*{Profile}
+\section{Profile}
 \begin{itemize} \itemsep1pt \parskip0pt \parsep0pt
   \item Student at the University of York.
-  \item Studying Mathematics and Computer Science and have successfully completed first undergraduate year, gaining 2:1 equivalent grades.
+  \item Studying Computer Science and Mathematics and am now in final year.
   \item Looking for employment within an IT company or IT-related role.
 \end{itemize}
 
+\section*{Experience}
+\begin{tabularx}{\textwidth}{@{}L R@{}}
+  July~2015 --- September~2016 &
+  \textbf{Systems Administrator} \par
+  \textit{Bytemark Hosting} \par
+  Industrial placement year, where time was split between technical support and
+  software development.  Phone \& email support with customers. Largely Linux
+  based. Gave experience with domains, networking and webservers. Also did
+  out-of-hours support one week per month and occasionally did physical work in
+  the data centre itself.  Development split between maintaining a Ruby-on-Rails
+  program responsible for mapping Bytemark's IP address space and working on a
+  compatibility layer for this and another system in Python. Also some minor
+  work in Go and got to attend GolangUK twice.
+
+  \tabularnewline%
+
+  October~2013 --- Present &
+  \textbf{Head of Computing} \par
+  \textit{University Radio York} \par
+
+  In 2016 became Head of Computing, being responsible for uptime of the radio
+  station and managing members of the Computing Team.
+\end{tabularx}
+
 \section*{Education}
-\begin{tabular}{r | l | l | l}
-  Dates                       & Institution
-  & Qualification(s)                                            & Grade(s) \\ \hline
-  \multirow{7}{*}{2013--}     & \multirow{7}{*}{University of York}
-  & MMath Mathematics and Computer Science                      &      \\
-                              &
-  & First Year Modules:                                         &      \\
-                              &
-  & ~~~~Core Algebra                                            & 56\% \\
-                              & 
-  & ~~~~Calculus                                                & 49\% \\
-                              & 
-  & ~~~~Mathematical Foundations of Computer Science            & 67\% \\
-                              & 
-  & ~~~~Introduction to Computer Architectures                  & 72\% \\
-                              &
-  & ~~~~Theory and Practice of Programming                      & 74\% \\ \hline
-  \multirow{7}{*}{2011--2013} & \multirow{7}{*}{Hartismere VI Form}
-  & A-levels:                                                   &   \\
-                              &
-  & ~~~~Physics                                                 & A \\
-                              & 
-  & ~~~~Mathematics                                             & A \\
-                              &
-  & ~~~~Further Mathematics                                     & B \\
-                              &
-  & ~~~~Computing                                               & B \\
-                              &
-  & AS-levels:                                                  &   \\
-                              &
-  & ~~~~Chemistry                                               & B \\   \hline
-  \multirow{4}{*}{2008--2011} & \multirow{4}{*}{Hartismere High School}
-  & \multirow{4}{*}{11 GCSEs, including Mathematics \& English} & 3 A* \\
-                              &
-  &                                                             & 2 A  \\
-                              & 
-  &                                                             & 3 B  \\
-                              &
-  &                                                             & 3 C  \\
-\end{tabular}
+\begin{tabularx}{\textwidth}{@{}L R@{}}
+  Autumn~2013 --- Present &
+  University of York, UK \par
+  BSc Computer Science \& Mathematics (TBD)
+
+  \tabularnewline%
+
+  Autumn~2011 --- Summer~2013 &
+	Hartismere VI Form, Eye, Suffolk, UK \par
+  A-levels: Physics~(A), Mathematics~(A), Further~Mathematics~(B), Computing~(B) \& Chemistry~(B,~AS)
+
+  \tabularnewline%
+
+  Autumn~2008 --- Summer~2011 &
+  Hartismere High School, Eye, Suffolk, UK \par
+  11 GCSEs (3 A*, 2 A, 3 B, 3 C)
+\end{tabularx}
 
 \section*{Technical Skills}
 \begin{minipage}[t]{.45\textwidth}
 \subsection*{Programming languages}
 \begin{itemize}
-  \item C/\cpp
-  \item \cs.NET
+  \item C/\cpp%
   \item HTML/CSS/JavaScript
   \item Java
-  \item \LaTeX{} \& \textsc{Bib}\TeX
+  \item \LaTeX{} \& \textsc{Bib}\TeX%
   \item Python (2 \& 3)
   \item SQL
 \end{itemize}
@@ -142,27 +108,24 @@
   \item Linux \& BSD experience
   \item Microsoft Office
   \item Server administration
-  \item VCSs - Subversion, Mercurial, Git
+  \item VCSs --- Subversion, Mercurial, Git
 \end{itemize}
 \end{minipage}
 
 \section*{Hobbies and Interests}
 \begin{itemize}  \itemsep1pt \parskip0pt \parsep0pt
-  \item Development work for several open-source projects, usually in \cpp ~(notably OpenTTD and FreeRCT, reimplementations of old games).
-  \item Gaining ``real world'' experience as a member of the University Radio York computing team which has software systems spanning those listed under Technical Skills above.
-  \item Built own computer to gain experience of hardware.
-  \item Leisure interests include cycling, reading and music (having achieved Advanced Music Grades on multiple instruments).
+  \item Development work for several open-source projects, usually in
+    \cpp~(notably OpenTTD and FreeRCT, reimplementations of old games).
+%  \item Gaining ``real world'' experience as a member of the University Radio
+    %  York computing team which has software systems spanning those listed
+    %  under Technical Skills above.
+  \item Built own computer to gain experience of hardware.  \item Leisure
+    interests include cycling, reading and music (having achieved Advanced Music
+    Grades on multiple instruments).
 \end{itemize}
 
 \section*{References}
 
-\begin{itemize}[label={}]
-\item Dr Henning Bostelmann, Academic Supervisor \hfill \\
-  \indent \email{henning.bostelmann@york.ac.uk}
-\item Dr Lilian Blot, Lecturer \hfill \\
-  \indent \email{lilian.blot@york.ac.uk}
-\end{itemize}
-
-Further details available on request.
+Available on request.
 
 \end{document}
