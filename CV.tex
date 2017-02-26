@@ -6,7 +6,7 @@
 \usepackage{graphicx} % For \cs
 \usepackage{datetime} % Custom date format
 \usepackage{tabularx}
-\usepackage{titlesec} % titleformat
+\usepackage{titlesec} % titleformat/section lines
 
 % Custom commands
 \newcommand{\cpp}{C{}\texttt{++}}
@@ -22,6 +22,11 @@
 \newcolumntype{L}{>{\scshape\raggedleft}p{3.5cm}}
 \newcolumntype{R}{>{}X}
 
+\newenvironment{myitemize}
+{\begin{itemize}[leftmargin=.75in,rightmargin=.75in]
+  \itemsep1pt \parskip0pt \parsep0pt}
+{\end{itemize}}
+
 \titleformat{\section}{\Huge\scshape\raggedright}{}{0em}{}[\titlerule]
 
 \begin{document}
@@ -34,89 +39,107 @@
 \hfill
 \begin{minipage}{0.4\textwidth}
 \begin{flushright}
-  \textbf{\mydate\today}\par
+  \texttt{\myemail}\\
+  \myphone\\
 \end{flushright}
 \end{minipage}
 
-\begin{flushright}
-  \texttt{\myemail}\\
-  \myphone
-\end{flushright}
 \par
 
 \section{Profile}
-I am currently an undergraduate at the University of York where I am in my final
-year of studying Computer Science and Mathematics. I already have a year of
-professional experience in an IT role and am now looking for a graduate role in
-a similar area. Available from July 2017 full-time.
+I am currently in my final year of studying Computer Science and Mathematics at
+the University of York. I already have a year of professional experience in an
+IT-related role. Available from July 2017 full-time.
 
 \section{Experience}
-\begin{tabularx}{\textwidth}{@{}L R@{}}
+\noindent\begin{tabularx}{\textwidth}{@{}L R@{}}
   July~2015 --- September~2016 &
   \textbf{Systems Administrator} \par
-  \textit{Bytemark Hosting} \par
-  Industrial placement year, where time was split between largely Linux based
-  technical support and software development. Phone \& email support with
-  customers. Gave significant experience with domains, networking and
-  webservers. Also did out-of-hours support one week per month and occasionally
-  did physical work in the data centre itself building servers and running
-  cables. Development work was split between maintaining a Ruby-on-Rails program
-  responsible for mapping IP address space and working on a compatibility layer
-  for this and another system, with Python and Go.
+  \textit{Bytemark Hosting}
+\end{tabularx}
+\begin{myitemize}
+  \item 15 month industrial placement, as part of university course.
+  \item Time split between technical support and software development.
+  \item Technical support role was largely Linux based, and involved
+    communicating directly with customers via `phone \& email.
+  \item Significant experience with domains, networking (including LINX
+    Networking course) and webserver maintenance.
+  \item Out-of-hours support on a rota, approximately one week per month.
+  \item Development work maintaining a Ruby-on-Rails web application responsible
+    for mapping Bytemark's IP address space.
+  \item Additional development work in Go \& Python.
+  \item Occasional physical work running cables and building servers in the
+    data centre.
+\end{myitemize}
 
-  \tabularnewline%
-
+\noindent\begin{tabularx}{\textwidth}{@{}L R@{}}
   October~2013 --- Present &
   \textbf{Head of Computing} \par
-  \textit{University Radio York} \par
-  Volunteered for the Computing Team at URY shortly after coming to University.
-  Varied software development and system administration - programming languages
-  used include PHP, Python \& Go. Also responsible for managing several systems
-  running FreeBSD, Debian \& Windows, with DBA experience with PostgreSQL.
-  Various leadership roles along the way, being Assistant Head of Computing in
-  2014, and in 2016 became Head of Computing, becoming responsible for managing
-  other members of the Computing Team and maintaining the uptime of the radio
-  station on a limited budget.
+  \textit{University Radio York}
 \end{tabularx}
-
-\section{Education}
-\begin{tabularx}{\textwidth}{@{}L R@{}}
-  Autumn~2013 --- Present &
-  \textit{University of York, UK} \par
-  BSc Computer Science \& Mathematics (expected 2:1) with \textit{``Binary Code
-  Translation from Register to Stack based code''} as a project.
-
-  \tabularnewline%
-
-  Autumn~2008 --- Summer~2013 &
-  \textit{Hartismere School, Eye, Suffolk, UK} \par
-  Achieved 4 A-levels in Physics~(A), Mathematics~(A), Further~Mathematics~(B)
-  \& Computing~(B), an AS level in Chemistry~(B) and 11 GCSEs (3A*, 2A, 3B, 3C)
-\end{tabularx}
+\begin{myitemize}
+  \item Volunteered for the Computing Team at URY shortly after starting
+    University.
+  \item Software development spread across various languages.
+  \item System administration spread across FreeBSD, Debian \& Windows systems.
+  \item Database administration experience with PostgreSQL\@.
+  \item Various leadership roles, including Assistant Head of Computing for
+    2014/15 year, and Head of Computing in 2016.
+  \item Currently responsible for managing other members of Computing Team and
+    maintaining the uptime of the radio station on a limited budget.
+\end{myitemize}
 
 \section{Technical Skills}
-\begin{itemize}% \itemsep1pt \parskip0pt \parsep0pt
+\begin{myitemize}
   \item Skilled at C, \cpp, HTML \& CSS, Python, PHP, Bash, Go, SQL and \LaTeX{}
-    programming languages.
-  \item Experience with many others, including Java, JavaScript (incl. jQuery),
-    \cs{} and Rust
+    languages.
+  \item Experience with many others, including Java, JavaScript (incl.\ jQuery),
+    \cs{}, Ruby and Rust.
   \item Highly practiced with Version control systems such as Git and
     Subversion.
   \item 8 years of Linux desktop \& server usage in development and system
     administration contexts.
-\end{itemize}
+\end{myitemize}
 
-\section{Hobbies and Interests}
-\begin{itemize}% \itemsep1pt \parskip0pt \parsep0pt
+\section{Education}
+\noindent\begin{tabularx}{\textwidth}{@{}L R@{}}
+  Autumn~2013 --- Present &
+  \textbf{University of York, UK}
+\end{tabularx}
+\begin{myitemize}
+  \item BSc Computer Science \& Mathematics (expected 2:1)
+  \item Final year thesis titled \textit{``Binary Code Translation from
+    Register to Stack based code''}
+  \item Notable module results include \textit{``Theory and Practice of
+    Programming Languages''} --- 74\% \& \textit{``Principles of Programming
+    Languages''} --- 75\%
+\end{myitemize}
+
+\noindent\begin{tabularx}{\textwidth}{@{}L R@{}}
+  Autumn~2008 --- Summer~2013 &
+  \textbf{Hartismere School, Eye, Suffolk, UK} \par
+\end{tabularx}
+\begin{myitemize}
+  \item A-levels in Physics~(A), Mathematics~(A), Further~Mathematics~(B)
+\& Computing~(B); AS level in Chemistry~(B)
+  \item 11 GCSEs (Maths, Physics, Chemistry, %A*
+    Biology, History, %A
+    Music, Geography, English, %B
+    R.E., French, English Literature) %3C
+\end{myitemize}
+
+\section{Other Interests}
+\begin{myitemize}
   \item Development work for several open-source projects, usually in
     \cpp~(notably OpenTTD and FreeRCT, reimplementations of old games). Other
     personal development work can be found at \texttt{github.com/LordAro}.
-  \item ``Infrastructure officer'' of Hacksoc and responsible since 2014 for
-    maintaining their Linux servers.
-  \item Keen cyclist with a few thousand miles ridden in the last year.
+  \item ``Infrastructure officer'' of HackSoc (UoY's computer science society)
+    and responsible since 2014 for maintaining their Linux servers.
   \item Leisure interests include reading and music (having achieved
-    Advanced Music Grades on Violin, Piano \& Trombone).
-\end{itemize}
+    Grades 7, 6 \& 6 on Violin, Piano \& Trombone respectively).
+  \item Keen cyclist (also used for commuting to work during placement year).
+  \item Learning to drive, test booked for March.
+\end{myitemize}
 
 \noindent{}References available on request.
 
